@@ -1,0 +1,11 @@
+h1 {
+    color:firebrick;
+}
+.question {
+    color:rgb(4, 63, 7);
+}
+
+.option {
+    margin-right: 6pt;
+    padding: 12pt;
+}

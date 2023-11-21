@@ -1,0 +1,12 @@
+{
+    "root" : {
+        "question" : "What do you want to record?",
+        "options" : [ "bats", "Birds", "Both" ]
+    },
+
+    "bats" : {
+        "question" : "How on",
+        "options" : [ "bats", "Birds", "Both" ]
+    }
+
+}
