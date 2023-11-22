@@ -1,38 +1,51 @@
 @charset "utf-8";
+
 #container {
 	margin: auto;
-    width: 500pt;
-    background-color: #e8e8e8;
+    width: fit-content;
+}
+
+#dt_div {
+	margin: auto;
+	margin-bottom: 20pt;
+}
+
+.persistant_btn {
+	background-color: #333333;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	cursor: pointer;
+	border-radius: 5px;
+	min-width: 60pt;
+}
+
+.persistant_btn:hover {
+	background-color: #475728;
+}
+
+.option-btn {
+	display: inline-block;
+}
+
+h1 {
+	color: #333333;
+}
+
+.question {
+	font-size: large;
 }
 
 /******************************************************
 	BODY TEXT COLOR
 ******************************************************/
 
-
 body	{
 	color: #000000;
-}
-
-/******************************************************
-	LINK COLOR
-******************************************************/
-.content-question a, .content-answer a {
-  color: #cc8a00;
-  font-weight:600;
-  text-decoration:none;
-}
-
-.content-question a:hover,
-.content-question a:focus, 
-.content-answer a:hover,
-.content-answer a:focus 
-{
-	text-decoration:underline;
-}
-
-.content-answer .btn,  .content-question .btn {
-    color:#ffffff;
 }
 
 /******************************************************
@@ -42,10 +55,6 @@ h3 {
 	color: #475728;
 }
 
-.node-question-text  {
-	color: #cc8a00;
-	font-weight: bold;
-}
 /******************************************************
 	BUTTON VALUES
 ******************************************************/
@@ -53,6 +62,9 @@ h3 {
 .btn-zingtree {
 	border: 0 none;
 	font-weight: 700;
+	padding: 5pt;
+	min-width: 50pt;
+	margin-right: 2pt;
 }
 .btn-zingtree:focus, .btn:active:focus, .btn.active:focus {
 	outline: 0 none;
@@ -73,196 +85,6 @@ h3 {
 .btn-zingtree:active, .btn-primary.active {
 	background: #475728;
 	box-shadow: none;
-}
-
-/******************************************************
-	PERSISTENT BUTTONS
-******************************************************/
-.persistent-buttons .btn-default {
-    color: #333333;
-    background-color: #ffffff;
-    border: 2px solid #475728;
-}
-
-.persistent-buttons .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active,
-.open .dropdown-toggle.btn-default {
-    color: #333333;
-    background-color: #ffffff;
-  	border-color: #475728;
-}
-
-.persistent-buttons .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
-    background-image: none;
-}
-
-/******************************************************
-	PANELS
-******************************************************/
-/* COLORS for Panels */
-
-.panel-primary > .panel-heading {
-	background-color: #475728;
-}
-.answers a.list-group-item {
-	background-color: #f8f8f8;
-	color: #1d1d1d;
-}
-.answers a.list-group-item div {
-	color: #1d1d1d;
-}
-.answers a.list-group-item:hover, .answers a.list-group-item:active {
-	background-color: #ffffff
-}
-
-.list-group-item-question, .answers a.list-group-item strong {
-	background-color: #afafaf;
-}
-.list-group-item-question, .answers a.list-group-item strong::before {
-	background-color: #cc8a00;
-}
-.answers a.list-group-item::after {
-	border-color: #cc8a00;
-}
-/* PANELS */
-
-.panel, .panel-heading {
-	border: thin;
-	border-style: solid;
-	border-color: #a5adb6;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
-.panels-node-title {
-	padding: 0.5em 3.4em 0.5em 1em;
-	position: relative;
-}
-/* fix for link icon */
-#node-title > .pull-right {
-	position: absolute;
-	top: 1em;
-	right: 1em;
-}
-.permalink {
-	margin-top: -9px;
-	margin-right: -7px;
-}
-/* panels design */
-.panel > .list-group .list-group-item {
-	border: none;
-	margin-bottom: 3px;
-	padding: 0.5em 3.5em 0.5em 1.5em;
-	-webkit-transition: background 200ms ease-in-out;
-	transition: background 200ms ease-in-out;
-}
-/* question */
-
-.panel > .list-group .list-group-item.list-group-item-question {
-	padding: 0.5em 3.5em;
-}
-.list-group-item-question h4, .panels-node-title h3 {
-	font-size: 1.3em;
-	margin: .1em 0 .1em 1em;
-    color: #FFFFFF ;   
-    
-}
-
-.list-group-item-question .fa, .panels-node-title h3::before {
-	position: absolute;
-	left: .75em;
-	top: 50%;
-	margin-top: -.75em;
-	font-size: 1.1em;
-	border-radius: 100em;
-	width: 1.6em;
-	height: 1.6em;
-	text-align: center;
-	line-height: 1.5;
-    
-}
-
-.list-group-item-question .fa::before {
-	content: '\f059';
-    font-family: 'FontAwesome';
-    padding-right: 5px;
-}
-
-
-/* node title */
-.panels-node-title {
-	padding-left: 3.5em;
-}
-.panels-node-title h3::before {
-	content: '\f138';
-    font-family: 'FontAwesome';
-    padding-right: 5px;
-}
-	
-.panels-node-title h3 {
-	display: inline-block;
-	vertical-align: text-top;
-	font-family: "Open Sans", sans-serif;
-}
-/* answers */
-.answers a.list-group-item {
-	font-size: 1.10em;
-	font-weight: 400;
-	overflow: hidden;
-}
-.answers a.list-group-item strong {
-	width: 1em;
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	overflow: hidden;
-}
-.answers a.list-group-item strong::before {
-	content: '';
-	width: 1em;
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	-webkit-transform: translateX(-2em);
-	transform: translateX(-2em);
-	-webkit-transition: 340ms ease-out;
-	transition: 340ms ease-out;
-}
-.answers a.list-group-item:hover strong::before, .answers a.list-group-item:active strong::before {
-	-webkit-transform: translateX(0);
-	transform: translateX(0);
-}
-.answers a.list-group-item div {
-	margin-left: 0.34em;
-	font-size: 0.8em;
-}
-.answers a.list-group-item strong .fa {
-	display: none;
-}
-/* arrows */
-.answers a.list-group-item::after {
-	content: '\f054';
-    font-family: 'FontAwesome';
-    color: #cc8a00;
-    position: absolute;
-    right: 2.8em;
-    bottom: 0;
-    top: 0.7em;
-    margin: auto;
-    -webkit-transition: right 180ms ease-in 80ms, opacity 160ms ease-out;
-    transition: right 180ms ease-in 80ms, opacity 160ms ease-out;
-    opacity: 0;
-}
-.answers a.list-group-item:hover::after {
-	right: 1.5em;
-	opacity: 1;
-}
-.panel-body {
-	padding: 1.5em;
-}
-.permalink {
-	margin-top: -28px;
-	margin-right: -7px;
 }
 
 
@@ -306,14 +128,19 @@ h3 {
     }
 }
 
-@media (max-width:767px) {
-    .button-node .answers [class*=col-sm-] {
-        width: 50%;
-    }
-}
 
-@media (max-width:400px) {
-    .button-node .answers [class*=col-sm-], .button-node .answers .col-md-offset-3.col-md-6 a {
+
+/* Phone screen changes*/
+@media (max-width:800px) {
+    #container {
         width: 100%;
     }
+
+	.option-btn {
+		display: block;
+		height: 30pt;
+		width: 100%;
+		text-align: left;
+		margin-bottom: 1pt;
+	}
 }
