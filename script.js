@@ -1,28 +1,70 @@
+
 //----------------------------- Functions -----------------------------//
+var data = getData();
 var stack = [];
 
-function createQuestionElememnt(question)
+function handleButtonClick(message) {
+    alert(message);
+}
+
+function displayNode(nodeId) {
+    stack.push(nodeId);
+    const myDiv = getDtElement();
+
+    var node = data.nodes[nodeId];
+
+    console.log(node.page_title);
+    console.log(node.content);
+    console.log(node.question);
+
+    myDiv.innerHTML += createTitleElement(node.page_title); 
+    myDiv.innerHTML += createContentsElement(node.content);
+    myDiv.innerHTML += createQuestionElements(node.question);
+
+    Object.values(node.buttons).forEach(btn => {
+        console.log("Button: " + btn.button_text);
+        console.log("Button: " + btn.hover_text);
+
+        myDiv.innerHTML += createOptionElements(btn.button_text, btn.button_link);
+    }); 
+
+
+    $("#dt_div").fadeIn("slow");
+}
+
+function createQuestionElements(question)
 {
     return "<p class='question'>" + question + "</p>"
 }
 
-function createOptionElememnt(optionText, optionFuntPtr)
+function createOptionElements(optionText, nodeId)
 {
-    return '<button class="option" onClick="' + optionFuntPtr + '">' + optionText + '</button>';
+    return '<button class="btn-zingtree answers" onClick="displayNode(\''+nodeId+'\')">' + optionText + '</button>';
+}
+
+function createTitleElement(title)
+{
+    return "<h3 class='content'>" + title + "</h3>"
+}
+
+function createContentsElement(content)
+{
+    return "<p class='content'>" + content + "</p>"
 }
 
 function getDtElement()
 {
     const myDiv = document.getElementById('dt_div');
     myDiv.style.display = 'none';
+    myDiv.innerHTML = '';
     return myDiv;
 }
 
 function goBack()
 {
     if (stack.length > 1) {
-        stack.pop()
-        window[stack.pop()]();
+        stack.pop();
+        displayNode(stack[stack.length-1]);
     }
 }
 
@@ -30,44 +72,12 @@ function goBack()
 function beginDecisionTree()
 {
     stack = [];
-    stack.push("beginDecisionTree");
-    const myDiv = getDtElement();
-
-    myDiv.innerHTML = createQuestionElememnt("What are you looking at recording?");
-    myDiv.innerHTML += createOptionElememnt("Bats", "displayBatOptions()");
-    myDiv.innerHTML += createOptionElememnt("Birds", "displayBirdOptions()");
-    myDiv.innerHTML += createOptionElememnt("Bats and Birds", "displayBirdAndBatOptions()");
-    
-    $("#dt_div").fadeIn("slow");
+    displayNode("1");
 }
-
-function displayBatOptions()
-{
-    stack.push("displayBatOptions");
-    const myDiv = getDtElement();
-    myDiv.innerHTML = createQuestionElememnt("Bats");
-    myDiv.innerHTML += createOptionElememnt("I want to play flappy bat", "displayChorus()");
-
-    $("#dt_div").fadeIn("slow");
-}
-
-function displayChorus() 
-{
-    stack.push("displayChorus");
-    const myDiv = getDtElement();
-
-    myDiv.innerHTML = "<h1>Chorus</h1>";
-
-    $("#dt_div").fadeIn(500);
-}
-
-
-
 
 
 
 
 //----------------------------- Acutal function calls -----------------------------//
-
 
 document.addEventListener('DOMContentLoaded',  beginDecisionTree );
